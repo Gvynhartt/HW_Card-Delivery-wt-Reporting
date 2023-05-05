@@ -40,33 +40,33 @@ public class DeliveryTestsPositive {
 
         UserEntry newUser = TestDataGenerator.generateNewUser();
 
-        $(By.xpath("//span[@data-test-id='city']/descendant::input[@placeholder='Город']")).setValue(newUser.getDeliveryCity());
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
-        // предварительно удаляем введённое по умолчанию значение сочетанием клавиш "Ctrl + Backspace"
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).setValue(TestDataGenerator.generateDateForInput(3));
-        // сперва задаём срок на 3 дня позже текущей даты
+        $(By.xpath("//span[@data-test-id='city']/descendant::input[@placeholder='Р“РѕСЂРѕРґ']")).setValue(newUser.getDeliveryCity());
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
+        // РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ СѓРґР°Р»СЏРµРј РІРІРµРґС‘РЅРЅРѕРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Р·РЅР°С‡РµРЅРёРµ СЃРѕС‡РµС‚Р°РЅРёРµРј РєР»Р°РІРёС€ "Ctrl + Backspace"
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).setValue(TestDataGenerator.generateDateForInput(3));
+        // СЃРїРµСЂРІР° Р·Р°РґР°С‘Рј СЃСЂРѕРє РЅР° 3 РґРЅСЏ РїРѕР·Р¶Рµ С‚РµРєСѓС‰РµР№ РґР°С‚С‹
         $(By.xpath("//span[@data-test-id='name']/descendant::input[@name='name']")).setValue(newUser.getNameSurname());
         $(By.xpath("//span[@data-test-id='phone']/descendant::input[@name='phone']")).setValue(newUser.getPhoneNumber());
         $(By.xpath("//label[@data-test-id='agreement']")).click();
-        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Запланировать\"]")).click();
-        $(By.xpath("//div[@data-test-id='success-notification']/descendant::div[text()=\"Успешно!\"]")).should(Condition.appear);
-        // проверяем наличие уведомления с нужным текстом
+        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Р—Р°РїР»Р°РЅРёСЂРѕРІР°С‚СЊ\"]")).click();
+        $(By.xpath("//div[@data-test-id='success-notification']/descendant::div[text()=\"РЈСЃРїРµС€РЅРѕ!\"]")).should(Condition.appear);
+        // РїСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ СѓРІРµРґРѕРјР»РµРЅРёСЏ СЃ РЅСѓР¶РЅС‹Рј С‚РµРєСЃС‚РѕРј
         $x("//div[@data-test-id='success-notification']/descendant::div[@class='notification__content']")
-                .shouldHave(Condition.text("Встреча успешно запланирована на " + TestDataGenerator.generateDateForInput(3))); // а вот и знание русского языка прорезалось
+                .shouldHave(Condition.text("Р’СЃС‚СЂРµС‡Р° СѓСЃРїРµС€РЅРѕ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅР° РЅР° " + TestDataGenerator.generateDateForInput(3))); // Р° РІРѕС‚ Рё Р·РЅР°РЅРёРµ СЂСѓСЃСЃРєРѕРіРѕ СЏР·С‹РєР° РїСЂРѕСЂРµР·Р°Р»РѕСЃСЊ
 
-        // собственно, данные заполнены, теперь нужно заменить дату
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
-        // предварительно удаляем введённое ранее значение сочетанием клавиш "Ctrl + Backspace"
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).setValue(TestDataGenerator.generateDateForInput(7));
-        // теперь задаём срок на 7 дней позже текущей даты
-        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Запланировать\"]")).click(); // снова жмём на кнопку для самых внимательных
+        // СЃРѕР±СЃС‚РІРµРЅРЅРѕ, РґР°РЅРЅС‹Рµ Р·Р°РїРѕР»РЅРµРЅС‹, С‚РµРїРµСЂСЊ РЅСѓР¶РЅРѕ Р·Р°РјРµРЅРёС‚СЊ РґР°С‚Сѓ
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
+        // РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ СѓРґР°Р»СЏРµРј РІРІРµРґС‘РЅРЅРѕРµ СЂР°РЅРµРµ Р·РЅР°С‡РµРЅРёРµ СЃРѕС‡РµС‚Р°РЅРёРµРј РєР»Р°РІРёС€ "Ctrl + Backspace"
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).setValue(TestDataGenerator.generateDateForInput(7));
+        // С‚РµРїРµСЂСЊ Р·Р°РґР°С‘Рј СЃСЂРѕРє РЅР° 7 РґРЅРµР№ РїРѕР·Р¶Рµ С‚РµРєСѓС‰РµР№ РґР°С‚С‹
+        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Р—Р°РїР»Р°РЅРёСЂРѕРІР°С‚СЊ\"]")).click(); // СЃРЅРѕРІР° Р¶РјС‘Рј РЅР° РєРЅРѕРїРєСѓ РґР»СЏ СЃР°РјС‹С… РІРЅРёРјР°С‚РµР»СЊРЅС‹С…
         $x("//div[@data-test-id='replan-notification']/descendant::div[@class='notification__content']")
-                .shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?")); // теперь опеределям наличие второго уведомления с новым текстом
+                .shouldHave(Condition.text("РЈ РІР°СЃ СѓР¶Рµ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅР° РІСЃС‚СЂРµС‡Р° РЅР° РґСЂСѓРіСѓСЋ РґР°С‚Сѓ. РџРµСЂРµРїР»Р°РЅРёСЂРѕРІР°С‚СЊ?")); // С‚РµРїРµСЂСЊ РѕРїРµСЂРµРґРµР»СЏРј РЅР°Р»РёС‡РёРµ РІС‚РѕСЂРѕРіРѕ СѓРІРµРґРѕРјР»РµРЅРёСЏ СЃ РЅРѕРІС‹Рј С‚РµРєСЃС‚РѕРј
         $x("//div[@data-test-id='replan-notification']/descendant::button[@role='button']").click();
-        // нажимаем на большое красное кнопко
+        // РЅР°Р¶РёРјР°РµРј РЅР° Р±РѕР»СЊС€РѕРµ РєСЂР°СЃРЅРѕРµ РєРЅРѕРїРєРѕ
         $x("//div[@data-test-id='success-notification']/descendant::div[@class='notification__content']")
-                .shouldHave(Condition.text("Встреча успешно запланирована на " + TestDataGenerator.generateDateForInput(7))); // после чего должно вылезти
-        // предыдущее уведомление, но с новой датой, коей наличие мы и проверяем
+                .shouldHave(Condition.text("Р’СЃС‚СЂРµС‡Р° СѓСЃРїРµС€РЅРѕ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅР° РЅР° " + TestDataGenerator.generateDateForInput(7))); // РїРѕСЃР»Рµ С‡РµРіРѕ РґРѕР»Р¶РЅРѕ РІС‹Р»РµР·С‚Рё
+        // РїСЂРµРґС‹РґСѓС‰РµРµ СѓРІРµРґРѕРјР»РµРЅРёРµ, РЅРѕ СЃ РЅРѕРІРѕР№ РґР°С‚РѕР№, РєРѕРµР№ РЅР°Р»РёС‡РёРµ РјС‹ Рё РїСЂРѕРІРµСЂСЏРµРј
     }
 
     @Test
@@ -75,32 +75,32 @@ public class DeliveryTestsPositive {
 
         UserEntry newUser = TestDataGenerator.generateNewUser();
 
-        $(By.xpath("//span[@data-test-id='city']/descendant::input[@placeholder='Город']")).setValue(newUser.getDeliveryCity());
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
-        // предварительно удаляем введённое по умолчанию значение сочетанием клавиш "Ctrl + Backspace"
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).setValue(TestDataGenerator.generateDateForInput(3));
-        // сперва задаём срок на 3 дня позже текущей даты
+        $(By.xpath("//span[@data-test-id='city']/descendant::input[@placeholder='Р“РѕСЂРѕРґ']")).setValue(newUser.getDeliveryCity());
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
+        // РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ СѓРґР°Р»СЏРµРј РІРІРµРґС‘РЅРЅРѕРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Р·РЅР°С‡РµРЅРёРµ СЃРѕС‡РµС‚Р°РЅРёРµРј РєР»Р°РІРёС€ "Ctrl + Backspace"
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).setValue(TestDataGenerator.generateDateForInput(3));
+        // СЃРїРµСЂРІР° Р·Р°РґР°С‘Рј СЃСЂРѕРє РЅР° 3 РґРЅСЏ РїРѕР·Р¶Рµ С‚РµРєСѓС‰РµР№ РґР°С‚С‹
         $(By.xpath("//span[@data-test-id='name']/descendant::input[@name='name']")).setValue(newUser.getNameSurname());
         $(By.xpath("//span[@data-test-id='phone']/descendant::input[@name='phone']")).setValue(newUser.getPhoneNumber());
         $(By.xpath("//label[@data-test-id='agreement']")).click();
-        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Запланировать\"]")).click();
-        $(By.xpath("//div[@data-test-id='success-notification']/descendant::div[text()=\"Успешно!\"]")).should(Condition.appear);
-        // проверяем наличие уведомления с нужным текстом
+        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Р—Р°РїР»Р°РЅРёСЂРѕРІР°С‚СЊ\"]")).click();
+        $(By.xpath("//div[@data-test-id='success-notification']/descendant::div[text()=\"РЈСЃРїРµС€РЅРѕ!\"]")).should(Condition.appear);
+        // РїСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ СѓРІРµРґРѕРјР»РµРЅРёСЏ СЃ РЅСѓР¶РЅС‹Рј С‚РµРєСЃС‚РѕРј
         $x("//div[@data-test-id='success-notification']/descendant::div[@class='notification__content']")
-                .shouldHave(Condition.text("Встреча успешно запланирована на " + TestDataGenerator.generateDateForInput(3))); // а вот и знание русского языка прорезалось
+                .shouldHave(Condition.text("Р’СЃС‚СЂРµС‡Р° СѓСЃРїРµС€РЅРѕ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅР° РЅР° " + TestDataGenerator.generateDateForInput(3))); // Р° РІРѕС‚ Рё Р·РЅР°РЅРёРµ СЂСѓСЃСЃРєРѕРіРѕ СЏР·С‹РєР° РїСЂРѕСЂРµР·Р°Р»РѕСЃСЊ
 
-        // повторно вводим дату
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
-        // предварительно удаляем введённое ранее значение сочетанием клавиш "Ctrl + Backspace"
-        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).setValue(TestDataGenerator.generateDateForInput(3));
-        // задаём ту же дату
-        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Запланировать\"]")).click(); // снова жмём на кнопку для самых внимательных
+        // РїРѕРІС‚РѕСЂРЅРѕ РІРІРѕРґРёРј РґР°С‚Сѓ
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
+        // РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ СѓРґР°Р»СЏРµРј РІРІРµРґС‘РЅРЅРѕРµ СЂР°РЅРµРµ Р·РЅР°С‡РµРЅРёРµ СЃРѕС‡РµС‚Р°РЅРёРµРј РєР»Р°РІРёС€ "Ctrl + Backspace"
+        $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Р”Р°С‚Р° РІСЃС‚СЂРµС‡Рё']")).setValue(TestDataGenerator.generateDateForInput(3));
+        // Р·Р°РґР°С‘Рј С‚Сѓ Р¶Рµ РґР°С‚Сѓ
+        $(By.xpath("//button[@role='button']/descendant::span[text()=\"Р—Р°РїР»Р°РЅРёСЂРѕРІР°С‚СЊ\"]")).click(); // СЃРЅРѕРІР° Р¶РјС‘Рј РЅР° РєРЅРѕРїРєСѓ РґР»СЏ СЃР°РјС‹С… РІРЅРёРјР°С‚РµР»СЊРЅС‹С…
         $x("//div[@data-test-id='replan-notification']/descendant::div[@class='notification__content']")
-                .shouldHave(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?")); // теперь опеределям наличие второго уведомления с новым текстом
+                .shouldHave(Condition.text("РЈ РІР°СЃ СѓР¶Рµ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅР° РІСЃС‚СЂРµС‡Р° РЅР° РґСЂСѓРіСѓСЋ РґР°С‚Сѓ. РџРµСЂРµРїР»Р°РЅРёСЂРѕРІР°С‚СЊ?")); // С‚РµРїРµСЂСЊ РѕРїРµСЂРµРґРµР»СЏРј РЅР°Р»РёС‡РёРµ РІС‚РѕСЂРѕРіРѕ СѓРІРµРґРѕРјР»РµРЅРёСЏ СЃ РЅРѕРІС‹Рј С‚РµРєСЃС‚РѕРј
         $x("//div[@data-test-id='replan-notification']/descendant::button[@role='button']").click();
-        // нажимаем на большое красное кнопко
+        // РЅР°Р¶РёРјР°РµРј РЅР° Р±РѕР»СЊС€РѕРµ РєСЂР°СЃРЅРѕРµ РєРЅРѕРїРєРѕ
         $x("//div[@data-test-id='success-notification']/descendant::div[@class='notification__content']")
-                .shouldHave(Condition.text("Встреча успешно запланирована на " + TestDataGenerator.generateDateForInput(3)));
-        // текст на уведомлении должен быть тот же
+                .shouldHave(Condition.text("Р’СЃС‚СЂРµС‡Р° СѓСЃРїРµС€РЅРѕ Р·Р°РїР»Р°РЅРёСЂРѕРІР°РЅР° РЅР° " + TestDataGenerator.generateDateForInput(3)));
+        // С‚РµРєСЃС‚ РЅР° СѓРІРµРґРѕРјР»РµРЅРёРё РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С‚РѕС‚ Р¶Рµ
     }
 }
