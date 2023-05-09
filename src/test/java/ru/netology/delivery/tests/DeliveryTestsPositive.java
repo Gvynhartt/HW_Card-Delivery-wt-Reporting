@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
 
-import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,9 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.TestDataGenerator;
-import ru.netology.delivery.data.UserEntry;
 
-import java.time.Duration;
 import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -38,7 +35,7 @@ public class DeliveryTestsPositive {
     @DisplayName("Positive: short path")
     public void shdTestPositiveShortPath() {
 
-        UserEntry newUser = TestDataGenerator.generateNewUser();
+        TestDataGenerator.UserEntry newUser = TestDataGenerator.generateNewUser();
 
         $(By.xpath("//span[@data-test-id='city']/descendant::input[@placeholder='Город']")).setValue(newUser.getDeliveryCity());
         $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));
@@ -73,7 +70,7 @@ public class DeliveryTestsPositive {
     @DisplayName("Positive: same date twice")
     public void shdTestPositiveShortPathWithSameDate() {
 
-        UserEntry newUser = TestDataGenerator.generateNewUser();
+        TestDataGenerator.UserEntry newUser = TestDataGenerator.generateNewUser();
 
         $(By.xpath("//span[@data-test-id='city']/descendant::input[@placeholder='Город']")).setValue(newUser.getDeliveryCity());
         $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));

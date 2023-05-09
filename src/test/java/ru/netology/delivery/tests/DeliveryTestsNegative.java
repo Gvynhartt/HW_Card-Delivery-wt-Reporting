@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.TestDataGenerator;
-import ru.netology.delivery.data.UserEntry;
 
 import java.util.Locale;
 
@@ -36,8 +35,8 @@ public class DeliveryTestsNegative {
     @DisplayName("Negative: replan but with data mismatch")
     public void shdTestReplanningWithMismatchingData() {
 
-        UserEntry newUser = TestDataGenerator.generateNewUser();
-        UserEntry newErUser = TestDataGenerator.generateNewUser(); // заводим второго пользлвателя, чтобы при перепланировании ввести несовпадающие данные
+        TestDataGenerator.UserEntry newUser = TestDataGenerator.generateNewUser();
+        TestDataGenerator.UserEntry newErUser = TestDataGenerator.generateNewUser(); // заводим второго пользлвателя, чтобы при перепланировании ввести несовпадающие данные
 
         $(By.xpath("//span[@data-test-id='city']/descendant::input[@placeholder='Город']")).setValue(newUser.getDeliveryCity());
         $(By.xpath("//span[@data-test-id='date']/descendant::input[@placeholder='Дата встречи']")).sendKeys(Keys.chord(Keys.CONTROL, Keys.BACK_SPACE));

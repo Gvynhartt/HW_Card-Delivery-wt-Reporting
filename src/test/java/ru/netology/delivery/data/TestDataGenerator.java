@@ -43,7 +43,7 @@ public class TestDataGenerator {
         nameSurname = nameSurname + " ";
         nameSurname = nameSurname + faker.name().firstName();
         return nameSurname; // Хотя если его ввести, форма и так сожрёт, хех. #ПРОТЕСТИРОВАНО
-        // Зато не сожрёт букву "ё". Слишком качественная локаль.
+        // Букву "ё", кстати, можно отсеять фильтром самого Faker'а при генерации. Но я понятия не имею, как его включить.
     }
 
     public static String generateCellPhoneNumber() { // а здесь номер почему-то из десяти цифр
@@ -53,7 +53,19 @@ public class TestDataGenerator {
         return phoneNumber;
     }
 
-    public static UserEntry generateNewUser() {
-        return new UserEntry();
+    public static UserEntry generateNewUser() { // теперь поля объекта нового пользоватеял заполняются в генераторе из методов последнего
+        UserEntry newUser = new UserEntry(generateCity(), generateFirstAndLastNames(), generateCellPhoneNumber());
+//        newUser.deliveryCity = generateCity();
+//        newUser.nameSurname = generateFirstAndLastNames();
+//        newUser.phoneNumber = generateCellPhoneNumber();
+        return newUser;
+    }
+
+    @Data
+    @Value
+    public static class UserEntry {
+        String deliveryCity;
+        String nameSurname;
+        String phoneNumber;
     }
 }
