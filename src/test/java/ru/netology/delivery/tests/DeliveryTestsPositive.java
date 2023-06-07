@@ -2,12 +2,11 @@ package ru.netology.delivery.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.TestDataGenerator;
@@ -21,8 +20,18 @@ public class DeliveryTestsPositive {
     private static Faker faker;
 
     @BeforeAll
-    static void setUpAll() {
+    static void setUpAllFaker() {
         faker = new Faker(new Locale("ru"));
+    }
+
+    @BeforeAll
+    static void setUpAllLogger() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAllLogger() {
+        SelenideLogger.removeListener("allure");
     }
 
     @BeforeEach
