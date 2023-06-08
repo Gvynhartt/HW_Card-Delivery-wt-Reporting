@@ -5,6 +5,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -18,6 +20,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class DeliveryTestsNegative {
 
     private static Faker faker;
+    private static final Logger LOGGER = LogManager.getLogger(DeliveryTestsPositive.class);
 
     @BeforeAll
     static void setUpAllFaker() {
@@ -43,6 +46,7 @@ public class DeliveryTestsNegative {
     @Test
     @DisplayName("Negative: replan but with data mismatch")
     public void shdTestReplanningWithMismatchingData() {
+        LOGGER.info("Runs an incorrect data test with mismatching user credentials");
 
         TestDataGenerator.UserEntry newUser = TestDataGenerator.generateNewUser();
         TestDataGenerator.UserEntry newErUser = TestDataGenerator.generateNewUser(); // заводим второго пользлвателя, чтобы при перепланировании ввести несовпадающие данные

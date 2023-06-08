@@ -1,0 +1,197 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 266338304 bytes for Failed to commit area from 0x00000000e0000000 to 0x00000000efe00000 of length 266338304.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3386), pid=13184, tid=8844
+#
+# JRE version:  (11.0.17+8) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.17+8-LTS, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dallure.results.directory=E:\NTLG_Testing_Automation\HW_Card-Delivery-with-Patterns\build\allure-results -Djunit.jupiter.extensions.autodetection.enabled=true -Dorg.gradle.internal.worker.tmpdir=E:\NTLG_Testing_Automation\HW_Card-Delivery-with-Patterns\build\tmp\test\work -Dorg.gradle.native=false -Dselenide.headless -javaagent:C:\Users\gvynh\.gradle\caches\modules-2\files-2.1\org.aspectj\aspectjweaver\1.9.9.1\dcd2703279a94ad909fa3f3d08671cb0f2dabf7\aspectjweaver-1.9.9.1.jar --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED -Xmx512m -Dfile.encoding=windows-1251 -Duser.country=RU -Duser.language=ru -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 3'
+
+Host: 11th Gen Intel(R) Core(TM) i7-11700F @ 2.50GHz, 16 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.546)
+Time: Thu Jun  8 03:35:54 2023 RTZ 2 (s 10 , 64 bit Build 19041 (10.0.19041.546) elapsed time: 0.005084 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000018dcaf89000):  JavaThread "Unknown thread" [_thread_in_vm, id=8844, stack(0x00000015fc600000,0x00000015fc700000)]
+
+Stack: [0x00000015fc600000,0x00000015fc700000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x61f66a]
+V  [jvm.dll+0x7ac889]
+V  [jvm.dll+0x7adf78]
+V  [jvm.dll+0x7ae653]
+V  [jvm.dll+0x24fbe8]
+V  [jvm.dll+0x61c97a]
+V  [jvm.dll+0x611105]
+V  [jvm.dll+0x307b2c]
+V  [jvm.dll+0x3079b2]
+V  [jvm.dll+0x30c6c6]
+V  [jvm.dll+0x352d5f]
+V  [jvm.dll+0x352790]
+V  [jvm.dll+0x2e4b38]
+V  [jvm.dll+0x2e5c96]
+V  [jvm.dll+0x7866c7]
+V  [jvm.dll+0x787e4f]
+V  [jvm.dll+0x35fac9]
+V  [jvm.dll+0x769630]
+V  [jvm.dll+0x3cd5ef]
+V  [jvm.dll+0x3cf981]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x214c2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x4cec1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000018dcadf7770, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000018dcafa4800 GCTaskThread "GC Thread#0" [stack: 0x00000015fc700000,0x00000015fc800000] [id=3336]
+  0x0000018dcafb6800 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000015fc800000,0x00000015fc900000] [id=5948]
+  0x0000018dcafb9000 ConcurrentGCThread "G1 Conc#0" [stack: 0x00000015fc900000,0x00000015fca00000] [id=16992]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbf1d14307]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000018dcaf85d20] Heap_lock - owner thread: 0x0000018dcaf89000
+
+Heap address: 0x00000000e0000000, size: 512 MB, Compressed Oops mode: Non-zero based: 0x00000000e0000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.003 Loaded shared library C:\Users\gvynh\.jdks\corretto-11.0.17\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff726530000 - 0x00007ff72653d000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\java.exe
+0x00007ffc42690000 - 0x00007ffc42886000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffc407b0000 - 0x00007ffc4086d000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffc40080000 - 0x00007ffc40348000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffc40520000 - 0x00007ffc40620000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffc21430000 - 0x00007ffc21449000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\VCRUNTIME140.dll
+0x00007ffc21790000 - 0x00007ffc217a7000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\jli.dll
+0x00007ffc40be0000 - 0x00007ffc40d80000 	C:\Windows\System32\USER32.dll
+0x00007ffc40050000 - 0x00007ffc40072000 	C:\Windows\System32\win32u.dll
+0x00007ffc34a50000 - 0x00007ffc34ceb000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_ca04af081b815d21\COMCTL32.dll
+0x00007ffc41ad0000 - 0x00007ffc41afa000 	C:\Windows\System32\GDI32.dll
+0x00007ffc41a20000 - 0x00007ffc41abe000 	C:\Windows\System32\msvcrt.dll
+0x00007ffc3ff40000 - 0x00007ffc40049000 	C:\Windows\System32\gdi32full.dll
+0x00007ffc403d0000 - 0x00007ffc4046d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffc40bb0000 - 0x00007ffc40be0000 	C:\Windows\System32\IMM32.DLL
+0x00007ffbfe3d0000 - 0x00007ffbfe46b000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\msvcp140.dll
+0x00007ffbf1a20000 - 0x00007ffbf25a5000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\server\jvm.dll
+0x00007ffc40700000 - 0x00007ffc407aa000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffc41b70000 - 0x00007ffc41c0b000 	C:\Windows\System32\sechost.dll
+0x00007ffc424c0000 - 0x00007ffc425e4000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffc41ac0000 - 0x00007ffc41ac8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffc2b890000 - 0x00007ffc2b899000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffc36cc0000 - 0x00007ffc36ce7000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffc41650000 - 0x00007ffc416bb000 	C:\Windows\System32\WS2_32.dll
+0x00007ffc3a2f0000 - 0x00007ffc3a2fa000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffc3dd10000 - 0x00007ffc3dd22000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffc28540000 - 0x00007ffc28550000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\verify.dll
+0x00007ffc355e0000 - 0x00007ffc357c4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffc2b820000 - 0x00007ffc2b84c000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffc40350000 - 0x00007ffc403cf000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffc21280000 - 0x00007ffc212a8000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\java.dll
+0x00007ffc27f10000 - 0x00007ffc27f1a000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\jimage.dll
+0x00007ffc34360000 - 0x00007ffc3436e000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\instrument.dll
+0x00007ffc20a10000 - 0x00007ffc20a28000 	C:\Users\gvynh\.jdks\corretto-11.0.17\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\gvynh\.jdks\corretto-11.0.17\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_ca04af081b815d21;C:\Users\gvynh\.jdks\corretto-11.0.17\bin\server
+
+VM Arguments:
+jvm_args: -Dallure.results.directory=E:\NTLG_Testing_Automation\HW_Card-Delivery-with-Patterns\build\allure-results -Djunit.jupiter.extensions.autodetection.enabled=true -Dorg.gradle.internal.worker.tmpdir=E:\NTLG_Testing_Automation\HW_Card-Delivery-with-Patterns\build\tmp\test\work -Dorg.gradle.native=false -Dselenide.headless -javaagent:C:\Users\gvynh\.gradle\caches\modules-2\files-2.1\org.aspectj\aspectjweaver\1.9.9.1\dcd2703279a94ad909fa3f3d08671cb0f2dabf7\aspectjweaver-1.9.9.1.jar --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED -Xmx512m -Dfile.encoding=windows-1251 -Duser.country=RU -Duser.language=ru -Duser.variant -ea 
+java_command: worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 3'
+java_class_path (initial): C:\\Users\\gvynh\\.gradle\\caches\\7.4\\workerMain\\gradle-worker.jar;E:\\NTLG_Testing_Automation\\HW_Card-Delivery-with-Patterns\\build\\classes\\java\\test;E:\\NTLG_Testing_Automation\\HW_Card-Delivery-with-Patterns\\build\\resources\\test;E:\\NTLG_Testing_Automation\\HW_Card-Delivery-with-Patterns\\build\\resources\\main;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\org.projectlombok\\lombok\\1.18.24\\13a394eed5c4f9efb2a6d956e2086f1d81e857d9\\lombok-1.18.24.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\com.github.javafaker\\javafaker\\1.0.2\\be0ff271b1208416822db4438864df47f90af92f\\javafaker-1.0.2.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\com.epam.reportportal\\agent-java-junit5\\5.1.7\\bbb6b7e28c1c7d353181d02a030862c11b164c64\\agent-java-junit5-5.1.7.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-jupiter-engine\\5.9.1\\1bf771097bde296c3ab174861954e8aafaaf2e94\\junit-jupiter-engine-5.9.1.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-junit5\\2.20.1\\4dd0476b2b3faf26719200407a2ecfd0cd3b4de9\\allure-junit5-2.20.1.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\io.qameta.allure\\allure-junit-platform\\2.20.1\\eed7d32afe119e7897123e4183921e311dae509f\\allure-junit-platform-2.20.1.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-launcher\\1.9.1\\b4534f5130dcfb10e8ac41a5fba6ec656c9ede06\\junit-platform-launcher-1.9.1.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-engine\\1.9.1\\83591e5089d6cea5f324aa3ecca9b19d5a275803\\junit-platform-engine-1.9.1.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.platform\\junit-platform-commons\\1.9.1\\3145f821b5cd10abcdc5f925baa5fffa6f1b628f\\junit-platform-commons-1.9.1.jar;C:\\Users\\gvynh\\.gradle\\caches\\modules-2\\files-2.1\\org.junit.jupiter\\junit-j
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 266338304                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 536870912                                 {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7594288                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122031976                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122031976                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files\Eclipse Adoptium\jdk-11.0.17.8-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\gvynh\AppData\Local\Microsoft\WindowsApps;;C:\Users\gvynh\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=gvynh
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 167 Stepping 1, GenuineIntel
+TMP=C:\Users\gvynh\AppData\Local\Temp
+TEMP=C:\Users\gvynh\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.546)
+OS uptime: 0 days 1:34 hours
+Hyper-V role detected
+
+CPU:total 16 (initial active 16) (8 cores per cpu, 2 threads per core) family 6 model 167 stepping 1 microcode 0x50, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, evex, sha, fma
+
+Memory: 4k page, system-wide physical 16134M (1874M free)
+TotalPageFile size 18182M (AvailPageFile size 208M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 69M, peak: 323M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.17+8-LTS) for windows-amd64 JRE (11.0.17+8-LTS), built on Oct 14 2022 18:02:01 by "Administrator" with MS VC++ 15.9 (VS2017)
+
+END.

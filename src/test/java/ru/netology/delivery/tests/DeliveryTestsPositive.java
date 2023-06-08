@@ -13,11 +13,15 @@ import ru.netology.delivery.data.TestDataGenerator;
 
 import java.util.Locale;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class DeliveryTestsPositive {
 
     private static Faker faker;
+    private static final Logger LOGGER = LogManager.getLogger(DeliveryTestsPositive.class);
 
     @BeforeAll
     static void setUpAllFaker() {
@@ -43,6 +47,7 @@ public class DeliveryTestsPositive {
     @Test
     @DisplayName("Positive: short path")
     public void shdTestPositiveShortPath() {
+        LOGGER.info("Runs a test with valid short path data");
 
         TestDataGenerator.UserEntry newUser = TestDataGenerator.generateNewUser();
 
@@ -78,6 +83,7 @@ public class DeliveryTestsPositive {
     @Test
     @DisplayName("Positive: same date twice")
     public void shdTestPositiveShortPathWithSameDate() {
+        LOGGER.info("Runs a test with correct data and same date entered twice");
 
         TestDataGenerator.UserEntry newUser = TestDataGenerator.generateNewUser();
 
